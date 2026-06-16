@@ -36,7 +36,7 @@
           datasets: [
             {
               data: [1, 1, 3],
-              backgroundColor: ['rgba(220, 38, 38, 0.85)', 'rgba(22, 163, 74, 0.85)', 'rgba(245, 158, 11, 0.9)'],
+              backgroundColor: ['rgba(220, 38, 38, 0.85)', 'rgba(22, 163, 74, 0.85)', 'rgba(128, 24, 54, 0.9)'],
               borderWidth: 2,
               borderColor: '#fff'
             }

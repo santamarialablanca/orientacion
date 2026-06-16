@@ -6,8 +6,8 @@
 
   var RANGOS = [
     { max: 39, etiqueta: 'Bajo', color: 'text-rose-700', bg: 'bg-rose-50', bar: 'rgba(225, 29, 72, 0.75)' },
-    { max: 69, etiqueta: 'Medio-bajo', color: 'text-amber-700', bg: 'bg-amber-50', bar: 'rgba(245, 158, 11, 0.75)' },
-    { max: 84, etiqueta: 'Medio-alto', color: 'text-amber-800', bg: 'bg-amber-50/80', bar: 'rgba(234, 179, 8, 0.75)' },
+    { max: 69, etiqueta: 'Medio-bajo', color: 'text-amber-700', bg: 'bg-amber-50', bar: 'rgba(128, 24, 54, 0.75)' },
+    { max: 84, etiqueta: 'Medio-alto', color: 'text-amber-800', bg: 'bg-amber-50/80', bar: 'rgba(128, 24, 54, 0.75)' },
     { max: 100, etiqueta: 'Alto', color: 'text-emerald-700', bg: 'bg-emerald-50', bar: 'rgba(5, 150, 105, 0.7)' }
   ];
 

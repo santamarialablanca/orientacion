@@ -193,7 +193,7 @@ try {
   assert(wiscUiSrc.indexOf('Suma CIT (columna del cuadernillo)') >= 0, 'nota CIT columna');
   assert(wiscUiSrc.indexOf('tabla-wisc-pd-pe__ayuda') >= 0, 'ayuda orden PD-PE');
   assert(wiscUiSrc.indexOf('Puzles visuales') >= 0, 'nota bloques indice');
-  var idxHtml = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+  var idxHtml = fs.readFileSync(path.join(root, 'tests.html'), 'utf8');
   assert(
     idxHtml.indexOf('Conversión de suma de puntuaciones escalares a puntuaciones compuestas') >= 0,
     'h3 conversion compuestas'
@@ -216,6 +216,12 @@ try {
       idxHtml.indexOf('cdn.tailwindcss.com') < 0 &&
       fs.existsSync(path.join(root, 'css', 'tailwind.css')),
     'Tailwind compilado localmente'
+  );
+  var selectorHtml = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+  assert(
+    selectorHtml.indexOf('Selector de instrumentos') >= 0 &&
+      selectorHtml.indexOf('tests.html?bateria=wisc-v') >= 0,
+    'index selector restaurado'
   );
   assert(wiscUiSrc.indexOf('modoAutomaticoWisc') >= 0 && wiscUiSrc.indexOf('s.n !== 2') >= 0, 'IC automaticos solo con sumas completas');
   assert(

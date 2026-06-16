@@ -2,708 +2,141 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PIEC tutor - Altas capacidades</title>
+  <title>Orientacion - selector de tests</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/tailwind.css?v=piec-aacc-20260616">
-  <link rel="stylesheet" href="css/esquema-tests.css?v=piec-aacc-20260616">
-  <style>
-    .piec-grid {
-      display: grid;
-      gap: 1.5rem;
-    }
-
-    @media (min-width: 1120px) {
-      .piec-grid {
-        grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
-        align-items: start;
-      }
-    }
-
-    .piec-stack,
-    .piec-form,
-    .piec-output-list {
-      display: grid;
-      gap: 1rem;
-    }
-
-    .piec-check-grid,
-    .piec-short-grid {
-      display: grid;
-      gap: 0.5rem;
-    }
-
-    @media (min-width: 680px) {
-      .piec-check-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .piec-short-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-    }
-
-    .piec-check {
-      display: flex;
-      min-height: 2.75rem;
-      align-items: flex-start;
-      gap: 0.55rem;
-      padding: 0.55rem 0.65rem;
-      font-size: 0.8125rem;
-      color: var(--color-text);
-      background: #f8fafc;
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-sm);
-    }
-
-    .piec-check input {
-      margin-top: 0.15rem;
-    }
-
-    .piec-output {
-      min-height: 9.5rem;
-      white-space: pre-wrap;
-    }
-
-    .piec-output--large {
-      min-height: 14rem;
-    }
-
-    .piec-counter {
-      margin-top: 0.35rem;
-      font-size: 0.6875rem;
-      color: var(--color-text-muted);
-    }
-
-    .piec-counter--warn {
-      color: #b45309;
-      font-weight: 700;
-    }
-
-    .piec-copy-row {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.5rem;
-      margin-bottom: 0.45rem;
-    }
-
-    .piec-legal {
-      padding: 0.75rem;
-      font-size: 0.8125rem;
-      color: var(--color-text-muted);
-      background: var(--color-accent-soft);
-      border: 1px solid #efdba7;
-      border-radius: var(--radius);
-    }
-
-    .piec-legal a {
-      color: var(--color-brand);
-      text-decoration: underline;
-    }
-
-    .piec-tabs {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.45rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .piec-tab {
-      padding: 0.35rem 0.55rem;
-      font-size: 0.75rem;
-      font-weight: 700;
-      color: #41614d;
-      background: #edf5ef;
-      border-radius: 0.25rem;
-    }
-  </style>
+  <link rel="stylesheet" href="css/tailwind.css?v=granate-20260616">
+  <link rel="stylesheet" href="css/index.css?v=selector-granate-2-20260616">
 </head>
-<body>
-  <div class="app">
-    <div class="border-b border-slate-200 bg-white">
-      <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-4 py-3">
-        <a href="index.html" class="btn-volver text-sm font-medium underline">← Volver al selector de test</a>
-        <span class="text-xs text-slate-500">PIEC tutor - Raíces Comunidad de Madrid</span>
+<body class="selector-inicio">
+  <header class="selector-topbar">
+    <div class="selector-shell selector-topbar__inner">
+      <img src="assets/brand/la-parra-logo-crop.png?v=logo-rojo-20260616" alt="La Parra" class="selector-topbar__logo">
+      <div class="selector-topbar__context">
+        <strong>Orientacion</strong>
+        <span class="selector-topbar__area">Evaluacion, informes y respuesta educativa</span>
       </div>
     </div>
+  </header>
 
-    <header class="site-header">
-      <div class="site-header__inner">
-        <div class="site-header__brand">
-          <img src="assets/brand/la-parra-logo-crop.png" alt="La Parra" class="site-header__logo">
-          <div>
-            <h1 class="site-header__title">Generador PIEC del tutor/a</h1>
-            <p class="site-header__subtitle">Textos para completar en Raíces el Plan Individualizado de Enriquecimiento Curricular / Adaptación Curricular AACC.</p>
+  <main class="selector-shell selector-workspace">
+    <section class="selector-intro" aria-labelledby="titulo-selector">
+      <div>
+        <p class="selector-kicker">Selector de instrumentos</p>
+        <h1 id="titulo-selector">Tests y generadores</h1>
+        <p>Acceso rapido a calculadoras, perfiles e informes. Cada pantalla incluye enlace de vuelta a este selector.</p>
+      </div>
+      <div class="selector-intro__status" aria-label="Herramientas disponibles">
+        <span>WISC-V</span>
+        <span>SENA</span>
+        <span>CELF-5</span>
+        <span>AACC</span>
+      </div>
+    </section>
+
+    <div class="selector-dashboard">
+      <div class="selector-dashboard__main">
+        <section aria-labelledby="titulo-principales">
+          <div class="selector-section-heading">
+            <div>
+              <p class="selector-section-heading__eyebrow">Aplicacion e informe</p>
+              <h2 id="titulo-principales">Instrumentos principales</h2>
+            </div>
+            <span class="selector-section-heading__meta">Perfil, graficas y texto editable</span>
           </div>
-        </div>
+
+          <div class="selector-tool-grid">
+            <a class="selector-tool selector-tool--link selector-tool--primary" href="tests.html?bateria=wisc-v">
+              <span class="selector-tool__code">W</span>
+              <span class="selector-tool__body">
+                <span class="selector-tool__topline"><strong>WISC-V</strong><span class="selector-tool__badge">Cognitivo</span></span>
+                <span class="selector-tool__description">PD, PE, indices, CIT, graficas y orientacion complementaria.</span>
+                <span class="selector-tool__meta">Abrir calculadora WISC-V</span>
+              </span>
+              <span class="selector-tool__arrow" aria-hidden="true">→</span>
+            </a>
+
+            <a class="selector-tool selector-tool--link" href="tests.html?bateria=sena">
+              <span class="selector-tool__code">S</span>
+              <span class="selector-tool__body">
+                <span class="selector-tool__topline"><strong>SENA</strong><span class="selector-tool__badge">Socioemocional</span></span>
+                <span class="selector-tool__description">Filtro por informante y edad, perfil T e informe orientativo.</span>
+                <span class="selector-tool__meta">Abrir perfil SENA</span>
+              </span>
+              <span class="selector-tool__arrow" aria-hidden="true">→</span>
+            </a>
+
+            <a class="selector-tool selector-tool--link" href="tests.html?bateria=celf5">
+              <span class="selector-tool__code">C</span>
+              <span class="selector-tool__body">
+                <span class="selector-tool__topline"><strong>CELF-5</strong><span class="selector-tool__badge">Lenguaje</span></span>
+                <span class="selector-tool__description">Bandas de edad, PE, IC compuestos, perfil e informe.</span>
+                <span class="selector-tool__meta">Abrir perfil CELF-5</span>
+              </span>
+              <span class="selector-tool__arrow" aria-hidden="true">→</span>
+            </a>
+
+            <a class="selector-tool selector-tool--link" href="tests.html?bateria=generica">
+              <span class="selector-tool__code">G</span>
+              <span class="selector-tool__body">
+                <span class="selector-tool__topline"><strong>Plantilla generica</strong><span class="selector-tool__badge selector-tool__badge--neutral">Base</span></span>
+                <span class="selector-tool__description">Formulario comun para registrar factores, compuestos y texto.</span>
+                <span class="selector-tool__meta">Abrir plantilla</span>
+              </span>
+              <span class="selector-tool__arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+        </section>
+
+        <section class="selector-catalog" aria-labelledby="titulo-aacc">
+          <div class="selector-section-heading selector-section-heading--compact">
+            <div>
+              <p class="selector-section-heading__eyebrow">Altas capacidades</p>
+              <h2 id="titulo-aacc">Raices y PIEC</h2>
+            </div>
+          </div>
+
+          <div class="selector-tool-grid">
+            <a class="selector-tool selector-tool--link" href="index-aacc.html">
+              <span class="selector-tool__code">A</span>
+              <span class="selector-tool__body">
+                <span class="selector-tool__topline"><strong>Sintesis AACC</strong><span class="selector-tool__badge">Raices</span></span>
+                <span class="selector-tool__description">Resumen, necesidades y medidas educativas para copiar.</span>
+                <span class="selector-tool__meta">Abrir sintesis</span>
+              </span>
+              <span class="selector-tool__arrow" aria-hidden="true">→</span>
+            </a>
+
+            <a class="selector-tool selector-tool--link" href="aacc/">
+              <span class="selector-tool__code">P</span>
+              <span class="selector-tool__body">
+                <span class="selector-tool__topline"><strong>Generador PIEC</strong><span class="selector-tool__badge">Tutor</span></span>
+                <span class="selector-tool__description">Texto para Plan Individualizado de Enriquecimiento Curricular.</span>
+                <span class="selector-tool__meta">Abrir generador</span>
+              </span>
+              <span class="selector-tool__arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+        </section>
       </div>
-    </header>
 
-    <main class="app__main">
-      <div class="layout">
-        <div class="piec-grid">
-          <section aria-labelledby="titulo-datos-piec">
-            <h2 id="titulo-datos-piec" class="section-title">
-              <span class="section-title__badge section-title__badge--1" aria-hidden="true">1</span>
-              Datos para el tutor/a
-            </h2>
-            <div class="card piec-form">
-              <div class="field-row field-row--2">
-                <div>
-                  <label class="label" for="alumno">Alumno/a</label>
-                  <input id="alumno" class="input js-piec" type="text" autocomplete="off" placeholder="Nombre, iniciales o identificador">
-                </div>
-                <div>
-                  <label class="label" for="curso">Curso y grupo</label>
-                  <input id="curso" class="input js-piec" type="text" autocomplete="off" placeholder="Ej. 4º EP A">
-                </div>
-              </div>
+      <aside class="selector-dashboard__aside" aria-label="Ayudas">
+        <section class="selector-aside-panel">
+          <p class="selector-section-heading__eyebrow">Mapa de decision</p>
+          <h2>Flujo WISC</h2>
+          <p>Guia de uso clinico-educativo para decidir instrumentos complementarios.</p>
+          <a class="selector-map-button selector-tool--link" href="docs/flujo-wisc-evaluacion-complementaria.md">
+            <span>Abrir documento</span>
+            <span aria-hidden="true">→</span>
+          </a>
+        </section>
 
-              <div class="field-row field-row--2">
-                <div>
-                  <label class="label" for="etapa">Etapa</label>
-                  <select id="etapa" class="select js-piec">
-                    <option value="primaria" selected>Educación Primaria</option>
-                    <option value="infantil">Educación Infantil - 2º ciclo</option>
-                    <option value="eso">Educación Secundaria Obligatoria</option>
-                    <option value="bachillerato">Bachillerato</option>
-                  </select>
-                </div>
-                <div>
-                  <label class="label" for="fecha-elaboracion">Fecha de elaboración</label>
-                  <input id="fecha-elaboracion" class="input js-piec" type="date">
-                </div>
-              </div>
-
-              <div class="field-row field-row--2">
-                <div>
-                  <label class="label" for="vigencia">Vigencia máxima</label>
-                  <input id="vigencia" class="input js-piec" type="date">
-                </div>
-                <div>
-                  <label class="label" for="docente-asignatura">Docente de la asignatura</label>
-                  <input id="docente-asignatura" class="input js-piec" type="text" autocomplete="off" placeholder="Si no coincide con tutoría">
-                </div>
-              </div>
-
-              <div class="field-row field-row--2">
-                <div>
-                  <label class="label" for="tutor">Tutor/a responsable</label>
-                  <input id="tutor" class="input js-piec" type="text" autocomplete="off" placeholder="Tutor/a">
-                </div>
-                <div>
-                  <label class="label" for="asignatura">Asignatura propuesta curricular</label>
-                  <input id="asignatura" class="input js-piec" type="text" autocomplete="off" placeholder="Ej. Lengua Castellana y Literatura">
-                </div>
-              </div>
-
-              <div>
-                <p class="label">Profesionales implicados</p>
-                <div class="piec-check-grid" data-group="profesionales">
-                  <label class="piec-check"><input type="checkbox" class="js-piec" value="tutor/a" checked> Tutor/a (obligatorio)</label>
-                  <label class="piec-check"><input type="checkbox" class="js-piec" value="equipo docente"> Equipo docente</label>
-                  <label class="piec-check"><input type="checkbox" class="js-piec" value="jefatura de estudios"> Jefatura de estudios</label>
-                  <label class="piec-check"><input type="checkbox" class="js-piec" value="EOE/Departamento de Orientación como asesor"> EOE / Orientación como asesor</label>
-                  <label class="piec-check"><input type="checkbox" class="js-piec" value="maestro/a PT si participa en la respuesta educativa"> PT si participa</label>
-                  <label class="piec-check"><input type="checkbox" class="js-piec" value="familia en el seguimiento y colaboración"> Familia</label>
-                </div>
-              </div>
-
-              <div>
-                <label class="label" for="barreras-contexto">Barreras del contexto y centro</label>
-                <textarea id="barreras-contexto" class="textarea js-piec" rows="4" placeholder="Organización de tiempos/espacios, agrupamientos, relación familia-centro, acceso a recursos, metodología habitual..."></textarea>
-              </div>
-
-              <div>
-                <label class="label" for="perfil-alumno">Barreras y facilitadores personales</label>
-                <textarea id="perfil-alumno" class="textarea js-piec" rows="5" placeholder="Intereses, destrezas preferidas, puntos fuertes, motivación, participación, rendimiento, aspectos socioemocionales, NCC..."></textarea>
-              </div>
-
-              <div>
-                <label class="label" for="informe-eval">Informe de evaluación psicopedagógica</label>
-                <textarea id="informe-eval" class="textarea js-piec" rows="4" placeholder="Fecha del informe, orientación/EOEP de referencia y síntesis de identificación de AACC, barreras, necesidades y propuesta de respuesta educativa."></textarea>
-              </div>
-
-              <div>
-                <p class="label">Actividades comunes de enriquecimiento</p>
-                <div class="piec-check-grid" data-group="enriquecimiento">
-                  <label class="piec-check"><input type="checkbox" class="js-piec" value="agrupamientos flexibles o desdobles para enriquecimiento"> Agrupamientos flexibles / desdobles</label>
-                  <label class="piec-check"><input type="checkbox" class="js-piec" value="actividades complementarias, talleres o sesiones con expertos"> Talleres / expertos</label>
-                  <label class="piec-check"><input type="checkbox" class="js-piec" value="rincón, ambiente o espacio de aula para investigación autónoma"> Espacio de investigación</label>
-                  <label class="piec-check"><input type="checkbox" class="js-piec" value="itinerarios multinivel y rúbricas de aprendizaje"> Itinerarios multinivel</label>
-                  <label class="piec-check"><input type="checkbox" class="js-piec" value="compactación curricular cuando el contenido esté ya evidenciado"> Compactación curricular</label>
-                  <label class="piec-check"><input type="checkbox" class="js-piec" value="entrenamiento metacognitivo, funciones ejecutivas o escritura creativa"> Metacognición / funciones ejecutivas</label>
-                  <label class="piec-check"><input type="checkbox" class="js-piec" value="proyectos de investigación vinculados a intereses del alumno/a"> Proyectos de investigación</label>
-                  <label class="piec-check"><input type="checkbox" class="js-piec" value="programas o actividades extracurriculares de enriquecimiento"> Actividades extracurriculares</label>
-                </div>
-              </div>
-
-              <div>
-                <label class="label" for="actividades-extra">Actividades o acuerdos comunes adicionales</label>
-                <textarea id="actividades-extra" class="textarea js-piec" rows="4" placeholder="Actividades no vinculadas a una asignatura concreta o comunes a varias áreas."></textarea>
-              </div>
-
-              <div>
-                <label class="label" for="familia">Información y colaboración con la familia</label>
-                <textarea id="familia" class="textarea js-piec" rows="4" placeholder="Comunicación de NCC, propuesta de respuesta educativa, acuerdos, seguimientos y propuestas de final de curso."></textarea>
-              </div>
-
-              <div>
-                <label class="label" for="flexibilizacion">Criterios para la flexibilización</label>
-                <textarea id="flexibilizacion" class="textarea js-piec" rows="4" placeholder="Indicar si no procede actualmente o si se valorará si el PIEC resulta insuficiente y beneficia su desarrollo personal y socioeducativo."></textarea>
-              </div>
-
-              <div>
-                <label class="label" for="documentos-adjuntos">Documentos adjuntos / anexos</label>
-                <textarea id="documentos-adjuntos" class="textarea js-piec" rows="3" placeholder="Anexo de barreras, actas de equipo docente, seguimientos, informe psicopedagógico u otros documentos si el texto no cabe en Raíces."></textarea>
-              </div>
-
-              <div>
-                <p class="label">Seguimiento en Raíces (máx. 100 caracteres por acuerdo)</p>
-                <div class="piec-short-grid">
-                  <input id="seg-1" class="input js-piec" type="text" maxlength="100" value="Valoración de barreras, objetivos del PIEC y NCC.">
-                  <input id="seg-2" class="input js-piec" type="text" maxlength="100" value="Seguimiento del primer trimestre y ajuste de medidas.">
-                  <input id="seg-3" class="input js-piec" type="text" maxlength="100" value="Seguimiento del segundo trimestre y valoración de progreso.">
-                  <input id="seg-4" class="input js-piec" type="text" maxlength="100" value="Seguimiento final y propuestas para el curso siguiente.">
-                  <input id="seg-5" class="input js-piec" type="text" maxlength="100" placeholder="Opcional">
-                </div>
-              </div>
-
-              <details>
-                <summary class="label" style="cursor:pointer;color:var(--color-brand)">Propuesta curricular por asignatura</summary>
-                <div class="piec-stack" style="margin-top:0.75rem">
-                  <div>
-                    <label class="label" for="objetivos">Objetivos de la asignatura</label>
-                    <textarea id="objetivos" class="textarea js-piec" rows="5" placeholder="Qué se quiere conseguir este curso desde esta asignatura en función de las barreras identificadas."></textarea>
-                  </div>
-                  <div>
-                    <label class="label" for="contenidos">Contenidos / saberes básicos y NCC</label>
-                    <textarea id="contenidos" class="textarea js-piec" rows="5" placeholder="Qué sabe, qué puede aprender rápido, qué seguirá como el grupo con itinerario ajustado y qué se introduce para transferir competencias."></textarea>
-                  </div>
-                  <div>
-                    <label class="label" for="metodologia">Metodología</label>
-                    <textarea id="metodologia" class="textarea js-piec" rows="4" placeholder="ABP, indagación, aula invertida, gamificación, SEM, trabajo autónomo, cooperativo, círculos de diálogo..."></textarea>
-                  </div>
-                  <div>
-                    <label class="label" for="actividades-asignatura">Actividades de enriquecimiento en la asignatura</label>
-                    <textarea id="actividades-asignatura" class="textarea js-piec" rows="5" placeholder="Enriquecimiento ordinario y específico, sin abordar currículo de cursos superiores."></textarea>
-                  </div>
-                  <div>
-                    <label class="label" for="evaluacion">Criterios, procedimientos e instrumentos de evaluación</label>
-                    <textarea id="evaluacion" class="textarea js-piec" rows="5" placeholder="Criterios de la programación, ajustes de instrumentos, accesibilidad, sustitución por producciones propias, rúbricas..."></textarea>
-                  </div>
-                  <div>
-                    <label class="label" for="competencias">Competencias específicas / básicas</label>
-                    <textarea id="competencias" class="textarea js-piec" rows="4" placeholder="Competencias específicas de la programación didáctica que se trabajarán desde la propuesta."></textarea>
-                  </div>
-                </div>
-              </details>
-
-              <div class="toolbar">
-                <button type="button" id="btn-generar" class="btn btn--primary">Generar PIEC tutor</button>
-                <button type="button" id="btn-limpiar" class="btn btn--secondary">Limpiar formulario</button>
-              </div>
-
-              <div class="persist-local card__hint">
-                <label class="persist-local__check">
-                  <input type="checkbox" id="guardar-local" class="js-piec">
-                  Guardar borrador en este navegador
-                </label>
-                <p class="persist-local__priv">Los datos se guardan solo en este equipo. En ordenadores compartidos, limpia el formulario al terminar.</p>
-              </div>
-            </div>
-          </section>
-
-          <section aria-labelledby="titulo-salida-piec">
-            <h2 id="titulo-salida-piec" class="section-title">
-              <span class="section-title__badge section-title__badge--2" aria-hidden="true">2</span>
-              Campos para copiar en Raíces
-            </h2>
-
-            <div class="piec-tabs" aria-label="Avisos de uso">
-              <span class="piec-tab">Tutor/a</span>
-              <span class="piec-tab">Máx. 3000 caracteres por campo</span>
-              <span class="piec-tab">PIEC vivo durante el curso</span>
-            </div>
-
-            <div class="piec-output-list">
-              <div class="card">
-                <div class="piec-copy-row">
-                  <label class="label" for="out-cabecera">Cabecera, informe psicopedagógico y adjuntos</label>
-                  <button type="button" class="btn btn--secondary js-copy" data-copy="out-cabecera">Copiar</button>
-                </div>
-                <textarea id="out-cabecera" class="textarea piec-output" readonly></textarea>
-                <p id="count-out-cabecera" class="piec-counter"></p>
-              </div>
-
-              <div class="card">
-                <div class="piec-copy-row">
-                  <label class="label" for="out-profesionales">Profesionales implicados</label>
-                  <button type="button" class="btn btn--secondary js-copy" data-copy="out-profesionales">Copiar</button>
-                </div>
-                <textarea id="out-profesionales" class="textarea piec-output" readonly></textarea>
-                <p id="count-out-profesionales" class="piec-counter"></p>
-              </div>
-
-              <div class="card">
-                <div class="piec-copy-row">
-                  <label class="label" for="out-organizacion">Organización de la respuesta educativa / barreras</label>
-                  <button type="button" class="btn btn--secondary js-copy" data-copy="out-organizacion">Copiar</button>
-                </div>
-                <textarea id="out-organizacion" class="textarea piec-output piec-output--large" readonly></textarea>
-                <p id="count-out-organizacion" class="piec-counter"></p>
-              </div>
-
-              <div class="card">
-                <div class="piec-copy-row">
-                  <label class="label" for="out-enriquecimiento">Actividades de enriquecimiento comunes</label>
-                  <button type="button" class="btn btn--secondary js-copy" data-copy="out-enriquecimiento">Copiar</button>
-                </div>
-                <textarea id="out-enriquecimiento" class="textarea piec-output" readonly></textarea>
-                <p id="count-out-enriquecimiento" class="piec-counter"></p>
-              </div>
-
-              <div class="card">
-                <div class="piec-copy-row">
-                  <label class="label" for="out-seguimiento">Seguimiento y valoración de progresos</label>
-                  <button type="button" class="btn btn--secondary js-copy" data-copy="out-seguimiento">Copiar</button>
-                </div>
-                <textarea id="out-seguimiento" class="textarea piec-output" readonly></textarea>
-                <p id="count-out-seguimiento" class="piec-counter"></p>
-              </div>
-
-              <div class="card">
-                <div class="piec-copy-row">
-                  <label class="label" for="out-familia">Información y colaboración con la familia</label>
-                  <button type="button" class="btn btn--secondary js-copy" data-copy="out-familia">Copiar</button>
-                </div>
-                <textarea id="out-familia" class="textarea piec-output" readonly></textarea>
-                <p id="count-out-familia" class="piec-counter"></p>
-              </div>
-
-              <div class="card">
-                <div class="piec-copy-row">
-                  <label class="label" for="out-flexibilizacion">Criterios para la flexibilización</label>
-                  <button type="button" class="btn btn--secondary js-copy" data-copy="out-flexibilizacion">Copiar</button>
-                </div>
-                <textarea id="out-flexibilizacion" class="textarea piec-output" readonly></textarea>
-                <p id="count-out-flexibilizacion" class="piec-counter"></p>
-              </div>
-
-              <div class="card">
-                <div class="piec-copy-row">
-                  <label class="label" for="out-asignatura">Propuesta curricular por asignatura</label>
-                  <button type="button" class="btn btn--secondary js-copy" data-copy="out-asignatura">Copiar</button>
-                </div>
-                <textarea id="out-asignatura" class="textarea piec-output piec-output--large" readonly></textarea>
-                <p id="count-out-asignatura" class="piec-counter"></p>
-              </div>
-
-              <p class="piec-legal">
-                Referencia normativa vigente: Decreto 23/2023, de atención educativa a las diferencias individuales; Orden 460/2023 para segundo ciclo de Infantil; Orden 130/2023 para Primaria; Orden 1712/2023 para ESO; Orden 2067/2023 para Bachillerato. En Primaria, el uso en Raíces puede aparecer como Adaptación Curricular para AACC; en Secundaria, como PIEC. Revisar siempre el procedimiento indicado por la DAT y el Plan Incluyo del centro.
-              </p>
-            </div>
-          </section>
-        </div>
-      </div>
-    </main>
-  </div>
-
-  <script>
-    (function () {
-      'use strict';
-
-      var STORAGE_KEY = 'orientacion:piec-tutor-aacc:v2';
-      var ids = [
-        'alumno', 'curso', 'etapa', 'fecha-elaboracion', 'vigencia', 'tutor', 'docente-asignatura',
-        'asignatura', 'barreras-contexto', 'perfil-alumno', 'informe-eval',
-        'actividades-extra', 'familia', 'flexibilizacion', 'documentos-adjuntos',
-        'seg-1', 'seg-2', 'seg-3', 'seg-4', 'seg-5',
-        'objetivos', 'contenidos', 'metodologia', 'actividades-asignatura', 'evaluacion', 'competencias'
-      ];
-      var outputs = [
-        'out-cabecera', 'out-profesionales', 'out-organizacion', 'out-enriquecimiento', 'out-seguimiento',
-        'out-familia', 'out-flexibilizacion', 'out-asignatura'
-      ];
-
-      function $(id) {
-        return document.getElementById(id);
-      }
-
-      function valor(id) {
-        var el = $(id);
-        return el ? String(el.value || '').trim() : '';
-      }
-
-      function seleccionados(grupo) {
-        var cont = document.querySelector('[data-group="' + grupo + '"]');
-        if (!cont) return [];
-        return Array.prototype.slice.call(cont.querySelectorAll('input[type="checkbox"]:checked')).map(function (x) {
-          return x.value;
-        });
-      }
-
-      function listaNatural(items) {
-        if (!items.length) return '';
-        if (items.length === 1) return items[0];
-        if (items.length === 2) return items[0] + ' y ' + items[1];
-        return items.slice(0, -1).join(', ') + ' y ' + items[items.length - 1];
-      }
-
-      function etapaTexto() {
-        var map = {
-          infantil: 'Educación Infantil (2º ciclo)',
-          primaria: 'Educación Primaria',
-          eso: 'Educación Secundaria Obligatoria',
-          bachillerato: 'Bachillerato'
-        };
-        return map[valor('etapa')] || 'etapa indicada';
-      }
-
-      function marcoEtapa() {
-        var etapa = valor('etapa');
-        if (etapa === 'infantil') {
-          return 'La medida se concreta en situaciones de aprendizaje o actividades orientadas al máximo desarrollo de sus capacidades, dentro del curso en el que está escolarizado/a.';
-        }
-        if (etapa === 'primaria') {
-          return 'La medida se concreta en situaciones de aprendizaje o actividades orientadas al máximo desarrollo de sus capacidades, dentro del curso en el que está escolarizado/a.';
-        }
-        if (etapa === 'eso') {
-          return 'La medida se concreta en actividades de profundización e investigación relacionadas con las materias que cursa, sin abordar elementos curriculares de cursos superiores ni asistencia a grupos de cursos superiores.';
-        }
-        return 'La medida se concreta en actividades de profundización e investigación vinculadas a las materias que cursa, sin abordar elementos curriculares de cursos superiores.';
-      }
-
-      function fallback(texto, alternativo) {
-        return texto || alternativo;
-      }
-
-      function generar() {
-        var alumno = valor('alumno') || 'el/la alumno/a';
-        var curso = valor('curso') || 'curso/grupo no indicado';
-        var tutor = valor('tutor') || 'tutor/a del grupo';
-        var docenteAsignatura = valor('docente-asignatura') || tutor;
-        var asignatura = valor('asignatura') || 'la asignatura seleccionada';
-        var fechaElaboracion = valor('fecha-elaboracion') || 'fecha de elaboración indicada en Raíces';
-        var vigencia = valor('vigencia') || '30 de junio del curso académico';
-        var profesionales = seleccionados('profesionales');
-        if (profesionales.indexOf('tutor/a') === -1) profesionales.unshift('tutor/a');
-        var enriq = seleccionados('enriquecimiento');
-        var enriqTexto = enriq.length ? listaNatural(enriq) : 'actividades de enriquecimiento ordinario y específico acordadas por el equipo docente';
-        var barrerasContexto = fallback(valor('barreras-contexto'), 'Se revisan barreras del contexto y del centro: organización de espacios y tiempos, agrupamientos, metodología habitual, accesibilidad de recursos, coordinación docente y relación familia-centro.');
-        var perfil = fallback(valor('perfil-alumno'), 'Se consideran sus intereses, destrezas preferidas, potencialidades, puntos fuertes, aspectos a mejorar, ajuste socioemocional, participación, rendimiento y nivel de competencia curricular.');
-        var informeEval = fallback(valor('informe-eval'), 'Se toma como referencia el informe de evaluación psicopedagógica disponible en Raíces, en el que se identifican las necesidades específicas de apoyo educativo asociadas a altas capacidades, las barreras de acceso y participación y las propuestas de respuesta educativa. Revisar fecha, autoría y vigencia del informe antes de bloquear el documento.');
-        var actividadesExtra = valor('actividades-extra');
-        var familia = fallback(valor('familia'), 'Se informará a la familia de la valoración del nivel de competencia curricular, de la propuesta de respuesta educativa, de los seguimientos realizados y de las decisiones de final de curso para el curso siguiente.');
-        var flex = fallback(valor('flexibilizacion'), 'En el momento actual no se adoptan decisiones de flexibilización. Se revisará si el PIEC resulta insuficiente para eliminar barreras de acceso y participación y si la medida beneficia el desarrollo personal y socioeducativo del alumno/a.');
-        var documentos = fallback(valor('documentos-adjuntos'), 'Si el contenido no cabe en los campos de Raíces, adjuntar anexo con identificación de barreras de acceso y participación, seguimientos del equipo docente, actas relevantes y concreción de la propuesta curricular. Generar el PDF final desde Utilidades / Documentos / Adaptación Curricular AACC y enviarlo a firma o bloqueo según el procedimiento del centro.');
-
-        $('out-cabecera').value = [
-          'APARTADOS 1, 2, 3 Y 11 DEL DOCUMENTO DE RAÍCES',
-          '',
-          '1. Fecha de elaboración: ' + fechaElaboracion + '.',
-          '2. Datos del alumno/a: ' + alumno + ', ' + curso + ', ' + etapaTexto() + '. Comprobar que los datos personales y NEAE se cargan desde el expediente virtual de Raíces.',
-          '3. Informe de evaluación psicopedagógica:',
-          informeEval,
-          '11. Documentos adjuntos / anexos:',
-          documentos,
-          'Ruta orientativa en Primaria: Alumnado / Alumnado con NEAE / Adaptación curricular AACC. Después de completar los apartados, generar el documento PDF desde Utilidades / Documentos / Adaptación Curricular AACC.'
-        ].join('\n');
-
-        $('out-profesionales').value = [
-          'Profesionales implicados en el PIEC de ' + alumno + ' (' + curso + ', ' + etapaTexto() + '): ' + listaNatural(profesionales) + '.',
-          'La elaboración y seguimiento corresponde al tutor/a y equipo docente, con la colaboración de jefatura de estudios y el asesoramiento de orientación cuando proceda. Cada profesional seleccionado en Raíces deberá rubricar el documento según el procedimiento del centro.',
-          'Profesorado implicado en la propuesta curricular de ' + asignatura + ': ' + docenteAsignatura + '.',
-          'Vigencia prevista: hasta ' + vigencia + ', al tratarse de un documento vivo del curso escolar.'
-        ].join('\n');
-
-        $('out-organizacion').value = [
-          'Conclusiones del análisis de barreras y organización de la respuesta educativa para ' + alumno + ':',
-          barrerasContexto,
-          perfil,
-          marcoEtapa(),
-          'La respuesta educativa se concreta mediante ajustes organizativos, metodológicos y curriculares ordinarios y específicos, coordinados por el tutor/a y el equipo docente, para favorecer acceso, participación, aprendizaje, motivación, autonomía y desarrollo socioemocional.'
-        ].join('\n');
-
-        $('out-enriquecimiento').value = [
-          'Actividades de enriquecimiento en las que participa ' + alumno + ':',
-          enriqTexto + '.',
-          actividadesExtra ? actividadesExtra : 'Estas actividades se desarrollarán a nivel de centro, aula y/o individual, evitando propuestas mecánicas o repetitivas y priorizando tareas abiertas, investigación, análisis crítico, creatividad, transferencia, toma de decisiones y elaboración de productos.',
-          'Se revisará su ajuste en las sesiones de seguimiento del PIEC.'
-        ].join('\n');
-
-        var segs = ['seg-1', 'seg-2', 'seg-3', 'seg-4', 'seg-5'].map(valor).filter(Boolean);
-        $('out-seguimiento').value = segs.map(function (s, i) {
-          return (i + 1) + '. ' + s;
-        }).join('\n');
-
-        $('out-familia').value = [
-          'Información y colaboración con la familia:',
-          familia,
-          'Se mantendrá coordinación familia-centro para valorar la adecuación de las medidas, compartir avances y acordar ajustes si se detectan nuevas barreras de acceso, participación o aprendizaje.'
-        ].join('\n');
-
-        $('out-flexibilizacion').value = [
-          'Criterios para la flexibilización:',
-          flex,
-          'La posible solicitud se vinculará a la insuficiencia del PIEC para eliminar barreras y al beneficio para su equilibrio personal y socioeducativo, conforme a la normativa aplicable.'
-        ].join('\n');
-
-        $('out-asignatura').value = [
-          'PROPUESTA CURRICULAR - ' + asignatura,
-          '',
-          'Objetivos:',
-          fallback(valor('objetivos'), 'Concretar, desde esta asignatura, los objetivos priorizados para eliminar barreras: motivación y persistencia, destrezas cognitivas, rendimiento ajustado al potencial, participación, comunicación, regulación, interacción social o proyección académica.'),
-          '',
-          'Contenidos / saberes básicos y NCC:',
-          fallback(valor('contenidos'), 'Valorar qué contenidos ya están evidenciados, cuáles puede alcanzar rápidamente, cuáles seguirá trabajando con el grupo mediante itinerario ajustado y cuáles conviene introducir para transferir competencias específicas del curso.'),
-          '',
-          'Metodología:',
-          fallback(valor('metodologia'), 'Aplicar metodologías compatibles con los objetivos del grupo y del PIEC: aprendizaje basado en proyectos, indagación, retos, trabajo cooperativo, aula invertida, gamificación, SEM, paisajes de aprendizaje, autonomía guiada y acompañamiento metacognitivo.'),
-          '',
-          'Actividades de enriquecimiento:',
-          fallback(valor('actividades-asignatura'), 'Proponer enriquecimiento ordinario y específico desde la asignatura: reducción de tareas ya dominadas, sustitución por tareas de dominio cognitivo superior, itinerarios de aprendizaje, investigación autónoma, producción propia y evidencias vinculadas a competencias específicas.'),
-          '',
-          'Criterios, procedimientos e instrumentos de evaluación:',
-          fallback(valor('evaluacion'), 'Mantener los criterios y criterios de calificación de la programación didáctica, personalizando procedimientos e instrumentos para que sean comprensibles, utilizables, practicables y adecuados a sus características diferenciales. Si la evaluación resulta negativa, revisar barreras y reajustar el PIEC.'),
-          '',
-          'Competencias:',
-          fallback(valor('competencias'), 'Recoger las competencias específicas de la programación didáctica que se trabajarán desde esta propuesta curricular.')
-        ].join('\n');
-
-        actualizarContadores();
-        guardarSiProcede();
-      }
-
-      function actualizarContadores() {
-        outputs.forEach(function (id) {
-          var el = $(id);
-          var count = $('count-' + id);
-          if (!el || !count) return;
-          var len = el.value.length;
-          count.textContent = len + ' / 3000 caracteres';
-          count.classList.toggle('piec-counter--warn', len > 3000);
-        });
-      }
-
-      function copiar(id, boton) {
-        var el = $(id);
-        if (!el || !el.value) return;
-        function ok() {
-          var old = boton.textContent;
-          boton.textContent = 'Copiado';
-          setTimeout(function () { boton.textContent = old; }, 1800);
-        }
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(el.value).then(ok);
-        } else {
-          el.focus();
-          el.select();
-          document.execCommand('copy');
-          ok();
-        }
-      }
-
-      function estadoFormulario() {
-        var data = { checks: {}, guardar: $('guardar-local').checked };
-        ids.forEach(function (id) {
-          data[id] = valor(id);
-        });
-        ['profesionales', 'enriquecimiento'].forEach(function (grupo) {
-          data.checks[grupo] = seleccionados(grupo);
-        });
-        return data;
-      }
-
-      function guardarSiProcede() {
-        if (!$('guardar-local').checked) return;
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(estadoFormulario()));
-      }
-
-      function restaurar() {
-        var raw = localStorage.getItem(STORAGE_KEY);
-        if (!raw) return;
-        try {
-          var data = JSON.parse(raw);
-          ids.forEach(function (id) {
-            if ($(id) && Object.prototype.hasOwnProperty.call(data, id)) $(id).value = data[id];
-          });
-          $('guardar-local').checked = !!data.guardar;
-          ['profesionales', 'enriquecimiento'].forEach(function (grupo) {
-            var vals = data.checks && data.checks[grupo] ? data.checks[grupo] : [];
-            var cont = document.querySelector('[data-group="' + grupo + '"]');
-            if (!cont) return;
-            Array.prototype.slice.call(cont.querySelectorAll('input[type="checkbox"]')).forEach(function (x) {
-              x.checked = vals.indexOf(x.value) !== -1;
-            });
-          });
-        } catch (err) {
-          localStorage.removeItem(STORAGE_KEY);
-        }
-      }
-
-      function limpiar() {
-        ids.forEach(function (id) {
-          if ($(id)) $(id).value = '';
-        });
-        document.querySelectorAll('input[type="checkbox"]').forEach(function (x) {
-          x.checked = false;
-        });
-        var tutorCheck = document.querySelector('[data-group="profesionales"] input[value="tutor/a"]');
-        if (tutorCheck) tutorCheck.checked = true;
-        $('etapa').value = 'primaria';
-        $('seg-1').value = 'Valoración de barreras, objetivos del PIEC y NCC.';
-        $('seg-2').value = 'Seguimiento del primer trimestre y ajuste de medidas.';
-        $('seg-3').value = 'Seguimiento del segundo trimestre y valoración de progreso.';
-        $('seg-4').value = 'Seguimiento final y propuestas para el curso siguiente.';
-        outputs.forEach(function (id) {
-          if ($(id)) $(id).value = '';
-        });
-        localStorage.removeItem(STORAGE_KEY);
-        fijarFechas();
-        generar();
-      }
-
-      function fechaISO(date) {
-        var yyyy = date.getFullYear();
-        var mm = String(date.getMonth() + 1).padStart(2, '0');
-        var dd = String(date.getDate()).padStart(2, '0');
-        return yyyy + '-' + mm + '-' + dd;
-      }
-
-      function fijarFechas() {
-        var fecha = $('fecha-elaboracion');
-        if (fecha && !fecha.value) fecha.value = fechaISO(new Date());
-        var v = $('vigencia');
-        if (!v || v.value) return;
-        var hoy = new Date();
-        var year = hoy.getMonth() >= 6 ? hoy.getFullYear() + 1 : hoy.getFullYear();
-        v.value = year + '-06-30';
-      }
-
-      function init() {
-        fijarFechas();
-        restaurar();
-        document.querySelectorAll('.js-piec').forEach(function (el) {
-          el.addEventListener('input', guardarSiProcede);
-          el.addEventListener('change', guardarSiProcede);
-        });
-        $('btn-generar').addEventListener('click', generar);
-        $('btn-limpiar').addEventListener('click', limpiar);
-        document.querySelectorAll('.js-copy').forEach(function (btn) {
-          btn.addEventListener('click', function () {
-            copiar(btn.getAttribute('data-copy'), btn);
-          });
-        });
-        generar();
-      }
-
-      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
-      else init();
-    })();
-  </script>
+        <section class="selector-aside-note">
+          <strong>Rutas reparadas</strong>
+          <p>Los botones de vuelta de tests y generadores apuntan a este selector.</p>
+        </section>
+      </aside>
+    </div>
+  </main>
 </body>
 </html>

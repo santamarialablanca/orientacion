@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tests estandarizados - orientacion</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/tailwind.css?v=granate-20260616">
+  <link rel="stylesheet" href="css/esquema-tests.css?v=tests-granate-20260616">
+</head>
+<body>
+  <div class="app">
+    <div class="border-b border-slate-200 bg-white">
+      <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-4 py-3">
+        <a href="index.html" class="btn-volver text-sm font-medium underline">← Volver al selector de test</a>
+        <span class="text-xs text-slate-500">Tests estandarizados</span>
+      </div>
+    </div>
+
+    <header class="site-header">
+      <div class="site-header__inner">
+        <div class="site-header__brand">
+          <img src="assets/brand/la-parra-logo-crop.png?v=logo-rojo-20260616" alt="La Parra" class="site-header__logo">
+          <div>
+            <h1 class="site-header__title">Perfil e informe de test</h1>
+            <p class="site-header__subtitle">WISC-V, SENA, CELF-5 o plantilla generica con graficas y texto editable.</p>
+          </div>
+        </div>
+        <div>
+          <label class="label" for="bateria">Instrumento</label>
+          <select id="bateria" class="select">
+            <option value="wisc-v">WISC-V</option>
+            <option value="sena">SENA</option>
+            <option value="celf5">CELF-5</option>
+            <option value="generica">Plantilla generica</option>
+          </select>
+        </div>
+      </div>
+    </header>
+
+    <main class="app__main">
+      <div class="layout">
+        <div id="panel-estandar" class="layout__grid">
+          <section aria-labelledby="titulo-entrada">
+            <h2 id="titulo-entrada" class="section-title">
+              <span class="section-title__badge section-title__badge--1" aria-hidden="true">1</span>
+              Datos y puntuaciones
+            </h2>
+
+            <div class="card">
+              <p id="card-hint-puntuaciones" class="card__hint"></p>
+
+              <div id="bloque-sena-opciones" class="sena-opciones hidden">
+                <div class="field-row field-row--2">
+                  <div>
+                    <label class="label" for="sena-informante">Informante</label>
+                    <select id="sena-informante" class="select">
+                      <option value="familia">Familia</option>
+                      <option value="escuela">Escuela</option>
+                      <option value="autoinforme">Autoinforme</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="label" for="sena-banda-edad">Banda de edad</label>
+                    <select id="sena-banda-edad" class="select">
+                      <option value="infantil">Infantil (3-6)</option>
+                      <option value="primaria" selected>Primaria (6-12)</option>
+                      <option value="secundaria">Secundaria (12-18)</option>
+                    </select>
+                  </div>
+                </div>
+                <p id="sena-filtro-resumen" class="card__hint hidden"></p>
+              </div>
+
+              <div id="bloque-celf5-opciones" class="sena-opciones celf5-opciones hidden">
+                <label class="label" for="celf-banda">Banda de edad CELF-5</label>
+                <select id="celf-banda" class="select">
+                  <option value="5-8">5:0-8:11</option>
+                  <option value="9-12">9:0-12:11</option>
+                  <option value="13-21">13:0-21:11</option>
+                </select>
+                <p id="celf-filtro-resumen" class="card__hint hidden"></p>
+              </div>
+
+              <div id="bloque-wisc-cuadernillo" class="wisc-cuadernillo hidden">
+                <h3 class="wisc-cuadernillo__titulo">Edad cronologica WISC-V</h3>
+                <div class="field-row field-row--2">
+                  <div>
+                    <label class="label" for="fecha-nacimiento">Fecha de nacimiento</label>
+                    <input id="fecha-nacimiento" class="input" type="date">
+                  </div>
+                  <div>
+                    <label class="label" for="fecha-aplicacion">Fecha de aplicacion</label>
+                    <input id="fecha-aplicacion" class="input" type="date">
+                  </div>
+                </div>
+                <input id="edad-anos" type="hidden">
+                <p id="wisc-edad-computada" class="wisc-edad-computada">Indica fecha de nacimiento y fecha de aplicacion.</p>
+                <div class="wisc-edad-grid-wrap">
+                  <table class="wisc-edad-grid" aria-label="Calculo de edad cronologica">
+                    <thead><tr><th></th><th>Años</th><th>Meses</th><th>Dias</th></tr></thead>
+                    <tbody>
+                      <tr><th>Aplicacion</th><td id="wisc-grid-app-a">—</td><td id="wisc-grid-app-m">—</td><td id="wisc-grid-app-d">—</td></tr>
+                      <tr><th>Nacimiento</th><td id="wisc-grid-nac-a">—</td><td id="wisc-grid-nac-m">—</td><td id="wisc-grid-nac-d">—</td></tr>
+                      <tr><th>Edad</th><td id="wisc-grid-ec-a">—</td><td id="wisc-grid-ec-m">—</td><td id="wisc-grid-ec-d">—</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="field-row field-row--2 wisc-tabla-contexto">
+                  <div>
+                    <label class="label" for="wisc-fuente-ic">Fuente de indices</label>
+                    <select id="wisc-fuente-ic" class="select">
+                      <option value="manual" selected>Automático — tablas locales del manual</option>
+                      <option value="manual-input">Introduccion manual</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="label" for="wisc-import-pe-texto">Importar PE</label>
+                    <textarea id="wisc-import-pe-texto" class="textarea" rows="3" placeholder="sim,10&#10;voc,11"></textarea>
+                    <button type="button" id="btn-import-pe-aplicar" class="btn btn--secondary">Aplicar PE</button>
+                  </div>
+                </div>
+                <p id="wisc-edad-resumen-tabla" class="wisc-edad-resumen-tabla"></p>
+                <div id="wisc-validacion-warnings" class="wisc-validacion-warnings hidden"></div>
+              </div>
+
+              <div id="contenedor-subtests" class="layout__stack"></div>
+
+              <div id="envoltorio-tabla-wisc" class="envoltorio-tabla-wisc hidden">
+                <h3 class="wisc-cuadernillo__titulo">Conversión de suma de puntuaciones escalares a puntuaciones compuestas</h3>
+                <div class="toolbar">
+                  <button type="button" id="btn-wisc-sugerir-ic" class="btn btn--secondary">Sugerir IC desde sumas</button>
+                </div>
+                <div id="tabla-resumen-wisc" class="tabla-resumen-wisc-wrap"></div>
+              </div>
+
+              <div class="toolbar">
+                <button type="button" id="btn-recalcular" class="btn btn--primary">Aplicar baremos e interpretar</button>
+              </div>
+
+              <div class="persist-local">
+                <label class="persist-local__check">
+                  <input id="persist-local-habilitado" type="checkbox">
+                  Guardar temporalmente en este navegador
+                </label>
+                <p class="persist-local__priv">Los datos se guardan solo en localStorage del navegador.</p>
+                <div class="persist-local__actions">
+                  <button type="button" id="btn-persist-restaurar" class="btn btn--secondary">Restaurar</button>
+                  <button type="button" id="btn-persist-limpiar" class="btn btn--secondary">Limpiar guardado</button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="layout__stack" aria-labelledby="titulo-salidas">
+            <div>
+              <h2 id="titulo-salidas" class="section-title">
+                <span class="section-title__badge section-title__badge--2" aria-hidden="true">2</span>
+                Graficas e interpretacion
+              </h2>
+              <div class="card">
+                <p class="card__hint charts-hint">Revision visual del perfil introducido.</p>
+                <div class="charts-grid">
+                  <div class="charts-grid__item">
+                    <p id="label-grafico-perfil" class="charts-grid__label">Perfil por subtest</p>
+                    <div class="chart-wrap"><canvas id="grafico-perfil"></canvas></div>
+                  </div>
+                  <div class="charts-grid__item">
+                    <p id="label-grafico-radar" class="charts-grid__label">Radar</p>
+                    <div class="chart-wrap"><canvas id="grafico-radar"></canvas></div>
+                  </div>
+                  <div id="envoltorio-grafico-compuestos" class="charts-grid__item charts-grid__item--wide hidden">
+                    <p id="label-grafico-compuestos" class="charts-grid__label">Indices compuestos</p>
+                    <div class="chart-wrap"><canvas id="grafico-compuestos"></canvas></div>
+                  </div>
+                  <div id="envoltorio-campana-cit" class="charts-grid__item charts-grid__item--wide hidden">
+                    <p class="charts-grid__label">Campana CIT</p>
+                    <div class="chart-wrap chart-wrap--campana"><canvas id="grafico-campana-cit"></canvas></div>
+                    <p id="campana-cit-leyenda" class="campana-cit-leyenda"></p>
+                  </div>
+                  <div class="charts-grid__item charts-grid__item--wide">
+                    <p class="charts-grid__label">Diagrama polar</p>
+                    <svg id="diagrama-polar" class="diagrama-polar" viewBox="0 0 600 600" role="img" aria-label="Diagrama polar"></svg>
+                  </div>
+                </div>
+                <div id="leyenda-interpretacion" class="leyenda leyenda--empty">
+                  <p>Introduce puntuaciones y pulsa «Aplicar baremos e interpretar».</p>
+                </div>
+                <div id="wisc-diagnostico-orientativo" class="wisc-diagnostico hidden"></div>
+                <div id="wisc-diagnostico-conducta" class="wisc-diagnostico hidden"></div>
+              </div>
+            </div>
+
+            <div>
+              <h2 class="section-title">
+                <span class="section-title__badge section-title__badge--3" aria-hidden="true">3</span>
+                Informe
+              </h2>
+              <div class="card">
+                <div class="toolbar">
+                  <button type="button" id="btn-generar-texto" class="btn btn--secondary">Actualizar texto</button>
+                  <button type="button" id="btn-copiar" class="btn btn--success">Copiar al portapapeles</button>
+                  <button type="button" id="btn-imprimir" class="btn btn--secondary">Imprimir</button>
+                </div>
+                <label class="label" for="informe-texto">Texto profesional</label>
+                <textarea id="informe-texto" class="textarea" rows="16"></textarea>
+                <details class="informe-anexo">
+                  <summary>Anexo breve</summary>
+                  <div class="informe-anexo__toolbar">
+                    <button type="button" id="btn-copiar-anexo" class="btn btn--secondary">Copiar anexo</button>
+                  </div>
+                  <textarea id="informe-anexo-texto" class="textarea textarea--anexo" rows="10"></textarea>
+                </details>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var bateria = params.get('bateria');
+      var allowed = { 'wisc-v': true, sena: true, celf5: true, generica: true };
+      if (allowed[bateria]) {
+        document.getElementById('bateria').value = bateria;
+      }
+    })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/baremos.js"></script>
+  <script src="js/perfiles.js"></script>
+  <script src="js/wisc-v-baremos-a1-manual.js"></script>
+  <script src="js/wisc-v-ic-desde-suma-demo.js"></script>
+  <script src="js/wisc-v-cuadernillo.js"></script>
+  <script src="js/validacion-wisc.js"></script>
+  <script src="js/wisc-ui.js"></script>
+  <script src="js/sena-interpretacion.js"></script>
+  <script src="js/sena-filtro.js"></script>
+  <script src="js/sena-modelo.js"></script>
+  <script src="js/celf5-filtro.js"></script>
+  <script src="js/celf5-modelo.js"></script>
+  <script src="js/diagrama-polar-dco.js"></script>
+  <script src="js/graficos-app.js?v=granate-20260616"></script>
+  <script src="js/informe.js"></script>
+  <script src="js/persistencia.js"></script>
+  <script src="js/importacion-pe-wisc.js"></script>
+  <script src="js/wisc-v-diagnostico-orientativo.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -15,7 +15,7 @@
   var BANDAS_CI = [
     { min: 40, max: 70, etiqueta: 'Muy bajo', color: 'rgba(190, 18, 60, 0.2)', barra: 'rgba(190, 18, 60, 0.85)' },
     { min: 71, max: 79, etiqueta: 'Baja', color: 'rgba(234, 88, 12, 0.18)', barra: 'rgba(234, 88, 12, 0.85)' },
-    { min: 80, max: 89, etiqueta: 'Media/baja', color: 'rgba(245, 158, 11, 0.18)', barra: 'rgba(245, 158, 11, 0.85)' },
+    { min: 80, max: 89, etiqueta: 'Media/baja', color: 'rgba(128, 24, 54, 0.12)', barra: 'rgba(128, 24, 54, 0.82)' },
     { min: 90, max: 109, etiqueta: 'Media', color: 'rgba(30, 64, 175, 0.28)', barra: 'rgba(30, 64, 175, 0.82)' },
     { min: 110, max: 119, etiqueta: 'Media/alta', color: 'rgba(13, 148, 136, 0.18)', barra: 'rgba(13, 148, 136, 0.82)' },
     { min: 120, max: 129, etiqueta: 'Alto', color: 'rgba(5, 150, 105, 0.18)', barra: 'rgba(5, 150, 105, 0.85)' },
@@ -910,7 +910,7 @@ function actualizarGraficoRadar(escalaItems, labels, data, esSena) {
       return SI.colorBarraT(v, escalaItems[i].polaridad || 'problema');
     }
     if (v < 7) return 'rgba(225, 29, 72, 0.85)';
-    if (v < 9) return 'rgba(245, 158, 11, 0.85)';
+    if (v < 9) return 'rgba(128, 24, 54, 0.82)';
     if (v <= 12) return 'rgba(100, 116, 139, 0.85)';
     return 'rgba(5, 150, 105, 0.85)';
   });

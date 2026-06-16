@@ -13,8 +13,8 @@
   --color-brand: #173f63;
   --color-brand-hover: #0f2f4d;
   --color-brand-soft: #eef4f8;
-  --color-accent: #d2a13c;
-  --color-accent-soft: #fff6df;
+  --color-accent: #801836;
+  --color-accent-soft: #f6e7ec;
   --radius: 0.5rem;
   --radius-sm: 0.4rem;
   --shadow: 0 1px 2px rgb(23 37 58 / 0.04);
@@ -22,7 +22,7 @@
   --font-mono: ui-monospace, "Cascadia Code", monospace;
   --max-width: 72rem;
   --step-1: #173f63;
-  --step-2: #b77912;
+  --step-2: #801836;
   --step-3: #55705d;
 }
 
@@ -301,7 +301,7 @@ body {
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: #173f63;
-  border-bottom: 1px solid #efd18c;
+  border-bottom: 1px solid #d9a9b8;
 }
 
 .subtest-grupo:first-child {
@@ -361,9 +361,9 @@ body {
   padding: 0.65rem 0.85rem;
   font-size: 0.8125rem;
   line-height: 1.45;
-  color: #92400e;
-  background: #fffbeb;
-  border: 1px solid #fde68a;
+  color: #801836;
+  background: var(--color-accent-soft);
+  border: 1px solid #d9a9b8;
   border-radius: var(--radius-sm);
 }
 
@@ -538,7 +538,7 @@ body {
 }
 
 .wisc-icg-criterio-aviso__warn {
-  color: #b45309;
+  color: #801836;
 }
 
 .wisc-icg-criterio-aviso__info {
@@ -547,8 +547,8 @@ body {
 }
 
 .tabla-resumen-wisc__icg-row.wisc-fila-icg--destacada td {
-  background: #fffbeb;
-  box-shadow: inset 0 0 0 1px #fcd34d;
+  background: var(--color-accent-soft);
+  box-shadow: inset 0 0 0 1px #d9a9b8;
 }
 
 .tabla-wisc-outer {
@@ -702,9 +702,9 @@ body {
   margin: 0.5rem 0 0;
   padding: 0.5rem 0.75rem;
   border-radius: var(--radius-sm);
-  border: 1px solid #fde68a;
-  background: #fffbeb;
-  color: #92400e;
+  border: 1px solid #d9a9b8;
+  background: var(--color-accent-soft);
+  color: #801836;
 }
 
 .sena-abrev {
@@ -1075,7 +1075,21 @@ body {
 }
 
 .text-amber-700 {
-  color: #b45309;
+  color: #801836;
+}
+
+.text-amber-800 {
+  color: #801836;
+}
+
+.bg-amber-50,
+.bg-amber-50\/50,
+.bg-amber-50\/80 {
+  background-color: var(--color-accent-soft);
+}
+
+.border-amber-200 {
+  border-color: #d9a9b8;
 }
 
 .text-slate-700 {
