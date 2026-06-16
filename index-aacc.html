@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Altas capacidades - síntesis para Raíces</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/tailwind.css">
+  <link rel="stylesheet" href="../css/esquema-tests.css">
+  <style>
+    .aacc-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 1100px) {
+      .aacc-grid {
+        grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+        align-items: start;
+      }
+    }
+
+    .aacc-stack,
+    .aacc-form {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .aacc-check-grid {
+      display: grid;
+      gap: 0.5rem;
+    }
+
+    @media (min-width: 640px) {
+      .aacc-check-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .aacc-check {
+      display: flex;
+      gap: 0.55rem;
+      align-items: flex-start;
+      min-height: 2.75rem;
+      padding: 0.55rem 0.65rem;
+      font-size: 0.8125rem;
+      color: var(--color-text);
+      background: #f8fafc;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+    }
+
+    .aacc-check input {
+      margin-top: 0.15rem;
+    }
+
+    .aacc-score-grid {
+      display: grid;
+      gap: 0.5rem;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @media (min-width: 760px) {
+      .aacc-score-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+
+    .aacc-mini-field .label {
+      min-height: 2.1rem;
+    }
+
+    .aacc-output {
+      min-height: 16rem;
+      white-space: pre-wrap;
+    }
+
+    .aacc-output--short {
+      min-height: 8rem;
+    }
+
+    .aacc-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 0.75rem;
+    }
+
+    .aacc-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.25rem 0.45rem;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      color: #41614d;
+      background: #edf5ef;
+      border-radius: 0.25rem;
+    }
+
+    .aacc-note {
+      padding: 0.75rem;
+      font-size: 0.8125rem;
+      color: var(--color-text-muted);
+      background: var(--color-accent-soft);
+      border: 1px solid #efdba7;
+      border-radius: var(--radius);
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <div class="border-b border-slate-200 bg-white">
+      <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-4 py-3">
+        <a href="../index.html" class="btn-volver text-sm font-medium underline">← Volver al selector de test</a>
+        <span class="text-xs text-slate-500">Altas capacidades - Raíces Comunidad de Madrid</span>
+      </div>
+    </div>
+
+    <header class="site-header">
+      <div class="site-header__inner">
+        <div class="site-header__brand">
+          <img src="../assets/brand/la-parra-logo-crop.png" alt="La Parra" class="site-header__logo">
+          <div>
+            <h1 class="site-header__title">Síntesis de altas capacidades</h1>
+            <p class="site-header__subtitle">Borradores rápidos para copiar en Raíces: resumen, necesidades y medidas educativas.</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="app__main">
+      <div class="layout">
+        <div class="aacc-grid">
+          <section aria-labelledby="titulo-datos">
+            <h2 id="titulo-datos" class="section-title">
+              <span class="section-title__badge section-title__badge--1" aria-hidden="true">1</span>
+              Datos y valoración
+            </h2>
+            <div class="card aacc-form">
+              <div class="field-row field-row--2">
+                <div>
+                  <label class="label" for="alumno">Alumno/a</label>
+                  <input id="alumno" class="input js-aacc" type="text" autocomplete="off" placeholder="Nombre, iniciales o identificador">
+                </div>
+                <div>
+                  <label class="label" for="fecha">Fecha</label>
+                  <input id="fecha" class="input js-aacc" type="date">
+                </div>
+              </div>
+
+              <div class="field-row field-row--2">
+                <div>
+                  <label class="label" for="curso">Curso</label>
+                  <input id="curso" class="input js-aacc" type="text" autocomplete="off" placeholder="Ej. 4º EP, 1º ESO">
+                </div>
+                <div>
+                  <label class="label" for="etapa">Etapa</label>
+                  <select id="etapa" class="select js-aacc">
+                    <option value="">No indicada</option>
+                    <option>Educación Infantil</option>
+                    <option>Educación Primaria</option>
+                    <option>Educación Secundaria Obligatoria</option>
+                    <option>Bachillerato</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label class="label" for="motivo">Motivo de la valoración</label>
+                <textarea id="motivo" class="textarea js-aacc" rows="4" placeholder="Demanda familiar, observación docente, cribado, revisión de medidas..."></textarea>
+              </div>
+
+              <div>
+                <p class="label">Fuentes e instrumentos</p>
+                <div class="aacc-check-grid" data-group="fuentes">
+                  <label class="aacc-check"><input type="checkbox" class="js-aacc" value="entrevista con la familia"> Entrevista familiar</label>
+                  <label class="aacc-check"><input type="checkbox" class="js-aacc" value="información del equipo docente"> Equipo docente</label>
+                  <label class="aacc-check"><input type="checkbox" class="js-aacc" value="observación en el aula"> Observación en aula</label>
+                  <label class="aacc-check"><input type="checkbox" class="js-aacc" value="revisión del expediente académico"> Expediente académico</label>
+                  <label class="aacc-check"><input type="checkbox" class="js-aacc" value="WISC-V u otra prueba cognitiva"> WISC-V / cognitiva</label>
+                  <label class="aacc-check"><input type="checkbox" class="js-aacc" value="pruebas de creatividad o pensamiento divergente"> Creatividad</label>
+                  <label class="aacc-check"><input type="checkbox" class="js-aacc" value="cuestionarios socioemocionales"> Socioemocional</label>
+                  <label class="aacc-check"><input type="checkbox" class="js-aacc" value="muestras de trabajo escolar"> Producciones escolares</label>
+                </div>
+              </div>
+
+              <div>
+                <p class="label">Puntuaciones cognitivas principales</p>
+                <div class="aacc-score-grid">
+                  <div class="aacc-mini-field">
+                    <label class="label" for="cit">CIT / CI</label>
+                    <input id="cit" class="input js-aacc" type="number" min="40" max="160" placeholder="130">
+                  </div>
+                  <div class="aacc-mini-field">
+                    <label class="label" for="icg">ICG / capacidad general</label>
+                    <input id="icg" class="input js-aacc" type="number" min="40" max="160">
+                  </div>
+                  <div class="aacc-mini-field">
+                    <label class="label" for="icv">Verbal</label>
+                    <input id="icv" class="input js-aacc" type="number" min="40" max="160">
+                  </div>
+                  <div class="aacc-mini-field">
+                    <label class="label" for="irf">Razonamiento</label>
+                    <input id="irf" class="input js-aacc" type="number" min="40" max="160">
+                  </div>
+                  <div class="aacc-mini-field">
+                    <label class="label" for="ive">Visoespacial</label>
+                    <input id="ive" class="input js-aacc" type="number" min="40" max="160">
+                  </div>
+                  <div class="aacc-mini-field">
+                    <label class="label" for="imt">Memoria trabajo</label>
+                    <input id="imt" class="input js-aacc" type="number" min="40" max="160">
+                  </div>
+                  <div class="aacc-mini-field">
+                    <label class="label" for="ivp">Velocidad proc.</label>
+                    <input id="ivp" class="input js-aacc" type="number" min="40" max="160">
+                  </div>
+                  <div class="aacc-mini-field">
+                    <label class="label" for="percentil">Percentil global</label>
+                    <input id="percentil" class="input js-aacc" type="text" autocomplete="off" placeholder="Ej. 98">
+                  </div>
+                </div>
+              </div>
+
+              <div class="field-row field-row--2">
+                <div>
+                  <label class="label" for="perfil">Perfil orientativo</label>
+                  <select id="perfil" class="select js-aacc">
+                    <option value="perfil de altas capacidades">Altas capacidades</option>
+                    <option value="perfil de sobredotación intelectual">Sobredotación intelectual</option>
+                    <option value="talento simple">Talento simple</option>
+                    <option value="talento complejo">Talento complejo</option>
+                    <option value="precocidad intelectual, pendiente de seguimiento evolutivo">Precocidad intelectual</option>
+                    <option value="indicios de alta capacidad pendientes de ampliar valoración">Indicios / ampliar valoración</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="label" for="conclusion">Conclusión</label>
+                  <select id="conclusion" class="select js-aacc">
+                    <option value="compatible">Perfil compatible con altas capacidades</option>
+                    <option value="indicios">Indicios significativos</option>
+                    <option value="seguimiento">Seguimiento y ampliación de información</option>
+                    <option value="no-concluyente">No concluyente con los datos actuales</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label class="label" for="resultados">Resultados cualitativos relevantes</label>
+                <textarea id="resultados" class="textarea js-aacc" rows="5" placeholder="Fortalezas, estilo de aprendizaje, creatividad, motivación, rendimiento, conducta, ajuste socioemocional..."></textarea>
+              </div>
+
+              <div>
+                <label class="label" for="necesidades">Necesidades educativas específicas</label>
+                <textarea id="necesidades" class="textarea js-aacc" rows="4" placeholder="Ritmo de aprendizaje, profundidad, autonomía, complejidad, intereses, regulación emocional..."></textarea>
+              </div>
+
+              <div>
+                <p class="label">Medidas propuestas</p>
+                <div class="aacc-check-grid" data-group="medidas">
+                  <label class="aacc-check"><input type="checkbox" class="js-aacc" value="enriquecimiento curricular planificado"> Enriquecimiento curricular</label>
+                  <label class="aacc-check"><input type="checkbox" class="js-aacc" value="profundización en contenidos y tareas de mayor complejidad"> Profundización</label>
+                  <label class="aacc-check"><input type="checkbox" class="js-aacc" value="proyectos de investigación vinculados a intereses del alumno/a"> Proyectos de investigación</label>
+                  <label class="aacc-check"><input type="checkbox" class="js-aacc" value="compactación de contenidos ya dominados cuando proceda"> Compactación</label>
+                  <label class="aacc-check"><input type="checkbox" class="js-aacc" value="actividades abiertas con diferentes niveles de resolución"> Tareas abiertas</label>
+                  <label class="aacc-check"><input type="checkbox" class="js-aacc" value="coordinación tutorial, docente y familiar"> Coordinación familia-centro</label>
+                  <label class="aacc-check"><input type="checkbox" class="js-aacc" value="seguimiento trimestral de las medidas adoptadas"> Seguimiento trimestral</label>
+                  <label class="aacc-check"><input type="checkbox" class="js-aacc" value="valoración de flexibilización solo si la evolución y la normativa aplicable lo justifican"> Valorar flexibilización</label>
+                </div>
+              </div>
+
+              <div>
+                <label class="label" for="medidas-extra">Medidas u observaciones adicionales</label>
+                <textarea id="medidas-extra" class="textarea js-aacc" rows="4" placeholder="Ajustes concretos por áreas, responsables, calendario, observaciones para el tutor/a..."></textarea>
+              </div>
+
+              <div class="toolbar">
+                <button type="button" id="btn-generar" class="btn btn--primary">Generar textos</button>
+                <button type="button" id="btn-limpiar" class="btn btn--secondary">Limpiar formulario</button>
+              </div>
+
+              <div class="persist-local card__hint">
+                <label class="persist-local__check">
+                  <input type="checkbox" id="guardar-local" class="js-aacc">
+                  Guardar borrador en este navegador
+                </label>
+                <p class="persist-local__priv">Los datos se guardan solo en este equipo. En ordenadores compartidos, limpia el formulario al terminar.</p>
+              </div>
+            </div>
+          </section>
+
+          <section aria-labelledby="titulo-salida">
+            <h2 id="titulo-salida" class="section-title">
+              <span class="section-title__badge section-title__badge--2" aria-hidden="true">2</span>
+              Texto para copiar
+            </h2>
+            <div class="aacc-stack">
+              <div class="card">
+                <div class="toolbar">
+                  <button type="button" id="btn-copiar-breve" class="btn btn--success">Copiar resumen</button>
+                  <button type="button" id="btn-copiar-completo" class="btn btn--secondary">Copiar informe completo</button>
+                </div>
+                <label class="label" for="salida-breve">Resumen breve para campo de Raíces</label>
+                <textarea id="salida-breve" class="textarea aacc-output aacc-output--short" rows="8" readonly></textarea>
+                <div id="chips" class="aacc-pill-row" aria-live="polite"></div>
+              </div>
+
+              <div class="card">
+                <label class="label" for="salida-completa">Informe psicopedagógico ampliado</label>
+                <textarea id="salida-completa" class="textarea aacc-output" rows="18" readonly></textarea>
+              </div>
+
+              <p class="aacc-note">Plantilla de ayuda a la redacción. Debe revisarse por el orientador/a, contrastarse con el expediente y ajustarse a la normativa vigente, al criterio profesional y a los apartados reales disponibles en Raíces.</p>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    (function () {
+      'use strict';
+
+      var STORAGE_KEY = 'orientacion:aacc:raices:v1';
+      var ids = [
+        'alumno', 'fecha', 'curso', 'etapa', 'motivo', 'cit', 'icg', 'icv', 'irf', 'ive', 'imt', 'ivp',
+        'percentil', 'perfil', 'conclusion', 'resultados', 'necesidades', 'medidas-extra'
+      ];
+
+      function $(id) {
+        return document.getElementById(id);
+      }
+
+      function valor(id) {
+        var el = $(id);
+        return el ? String(el.value || '').trim() : '';
+      }
+
+      function numero(id) {
+        var v = valor(id);
+        if (!v) return null;
+        var n = Number(v);
+        return Number.isFinite(n) ? n : null;
+      }
+
+      function seleccionados(grupo) {
+        var cont = document.querySelector('[data-group="' + grupo + '"]');
+        if (!cont) return [];
+        return Array.prototype.slice.call(cont.querySelectorAll('input[type="checkbox"]:checked')).map(function (x) {
+          return x.value;
+        });
+      }
+
+      function listaNatural(items) {
+        if (!items.length) return '';
+        if (items.length === 1) return items[0];
+        if (items.length === 2) return items[0] + ' y ' + items[1];
+        return items.slice(0, -1).join(', ') + ' y ' + items[items.length - 1];
+      }
+
+      function interpretarCi(n) {
+        if (n === null) return '';
+        if (n >= 130) return 'muy superior';
+        if (n >= 120) return 'superior';
+        if (n >= 110) return 'medio-alto';
+        if (n >= 90) return 'medio';
+        if (n >= 80) return 'medio-bajo';
+        return 'bajo';
+      }
+
+      function tramoCognitivo() {
+        var pares = [
+          ['CIT/CI', numero('cit')],
+          ['ICG', numero('icg')],
+          ['verbal', numero('icv')],
+          ['razonamiento', numero('irf')],
+          ['visoespacial', numero('ive')],
+          ['memoria de trabajo', numero('imt')],
+          ['velocidad de procesamiento', numero('ivp')]
+        ].filter(function (p) { return p[1] !== null; });
+
+        if (!pares.length) return 'No se han consignado puntuaciones cognitivas numéricas en esta plantilla.';
+
+        var lineas = pares.map(function (p) {
+          return p[0] + ': ' + p[1] + ' (' + interpretarCi(p[1]) + ')';
+        });
+        var valores = pares.map(function (p) { return p[1]; });
+        var min = Math.min.apply(Math, valores);
+        var max = Math.max.apply(Math, valores);
+        var perfil = max - min >= 23
+          ? 'El perfil muestra dispersión entre áreas, por lo que conviene priorizar el análisis cualitativo y las fortalezas específicas.'
+          : 'El perfil informado es relativamente homogéneo entre las áreas consignadas.';
+        return lineas.join('; ') + '. ' + perfil;
+      }
+
+      function conclusionTexto() {
+        var c = valor('conclusion');
+        var perfil = valor('perfil') || 'perfil de altas capacidades';
+        if (c === 'compatible') return 'Los datos disponibles son compatibles con un ' + perfil + '.';
+        if (c === 'indicios') return 'Se observan indicios significativos de ' + perfil + ', pendientes de completar o contrastar con nueva información.';
+        if (c === 'seguimiento') return 'Se recomienda seguimiento y ampliación de información antes de cerrar la valoración.';
+        return 'Con los datos actuales la valoración no resulta concluyente, por lo que se propone seguimiento educativo y revisión posterior.';
+      }
+
+      function generar() {
+        var nombre = valor('alumno') || 'el/la alumno/a';
+        var fecha = valor('fecha') || 'fecha no indicada';
+        var curso = valor('curso') || 'curso no indicado';
+        var etapa = valor('etapa') || 'etapa no indicada';
+        var fuentes = seleccionados('fuentes');
+        var medidas = seleccionados('medidas');
+        var motivo = valor('motivo') || 'Se realiza valoración psicopedagógica por sospecha o revisión de posibles necesidades asociadas a altas capacidades.';
+        var resultados = valor('resultados') || 'Se recomienda completar este apartado con las fortalezas observadas, el rendimiento escolar, el estilo de aprendizaje, la motivación y el ajuste socioemocional.';
+        var necesidades = valor('necesidades') || 'Precisa una respuesta educativa que ajuste ritmo, profundidad, nivel de reto, autonomía y acompañamiento tutorial.';
+        var extra = valor('medidas-extra');
+        var pc = valor('percentil');
+        var fuenteTxt = fuentes.length ? listaNatural(fuentes) : 'información psicopedagógica disponible en el centro';
+        var medidasTxt = medidas.length ? listaNatural(medidas) : 'ajustes metodológicos, enriquecimiento y seguimiento tutorial';
+        if (extra) medidasTxt += '. ' + extra;
+
+        var cognitivo = tramoCognitivo();
+        if (pc) cognitivo += ' Percentil global informado: ' + pc + '.';
+        var conclusion = conclusionTexto();
+
+        var breve = [
+          nombre + ', ' + curso + ' (' + etapa + ').',
+          conclusion,
+          'Fuentes consideradas: ' + fuenteTxt + '.',
+          'Síntesis cognitiva: ' + cognitivo,
+          'Necesidades educativas: ' + necesidades,
+          'Medidas propuestas: ' + medidasTxt + '.',
+          'Revisión: ' + fecha + '.'
+        ].join('\n');
+
+        var completo = [
+          'INFORME PSICOPEDAGÓGICO - SÍNTESIS PARA RAÍCES',
+          '',
+          '1. Identificación',
+          'Alumno/a: ' + nombre,
+          'Curso y etapa: ' + curso + ' - ' + etapa,
+          'Fecha: ' + fecha,
+          '',
+          '2. Motivo de la valoración',
+          motivo,
+          '',
+          '3. Fuentes de información e instrumentos',
+          'Se integra información procedente de ' + fuenteTxt + '. La interpretación debe contrastarse con los manuales de las pruebas utilizadas, el expediente académico y la observación educativa.',
+          '',
+          '4. Resultados relevantes',
+          cognitivo,
+          resultados,
+          '',
+          '5. Conclusión psicopedagógica',
+          conclusion,
+          '',
+          '6. Necesidades educativas específicas',
+          necesidades,
+          '',
+          '7. Respuesta educativa y medidas propuestas',
+          medidasTxt + '.',
+          '',
+          '8. Seguimiento',
+          'Se propone coordinar tutoría, equipo docente, orientación y familia, revisar la aplicación de las medidas y ajustar la respuesta educativa según la evolución del alumno/a.',
+          '',
+          'Nota profesional: este texto es un borrador editable para Raíces y debe adecuarse al caso, a la normativa vigente y al criterio del orientador/a.'
+        ].join('\n');
+
+        $('salida-breve').value = breve;
+        $('salida-completa').value = completo;
+        renderChips();
+        guardarSiProcede();
+      }
+
+      function renderChips() {
+        var chips = [];
+        var cit = numero('cit');
+        var icg = numero('icg');
+        var valores = ['cit', 'icg', 'icv', 'irf', 'ive', 'imt', 'ivp'].map(numero).filter(function (n) {
+          return n !== null;
+        });
+        if (cit !== null && cit >= 130) chips.push('CIT >= 130');
+        if (icg !== null && icg >= 130) chips.push('ICG >= 130');
+        if (valores.length && Math.max.apply(Math, valores) - Math.min.apply(Math, valores) >= 23) chips.push('Perfil heterogéneo');
+        chips.push(valor('perfil') || 'Altas capacidades');
+        $('chips').innerHTML = chips.map(function (c) {
+          return '<span class="aacc-pill">' + c.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</span>';
+        }).join('');
+      }
+
+      function copiar(id, boton) {
+        var el = $(id);
+        if (!el || !el.value) return;
+        function ok() {
+          var old = boton.textContent;
+          boton.textContent = 'Copiado';
+          setTimeout(function () { boton.textContent = old; }, 1800);
+        }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(el.value).then(ok);
+        } else {
+          el.focus();
+          el.select();
+          document.execCommand('copy');
+          ok();
+        }
+      }
+
+      function estadoFormulario() {
+        var data = { checks: {}, guardar: $('guardar-local').checked };
+        ids.forEach(function (id) {
+          data[id] = valor(id);
+        });
+        ['fuentes', 'medidas'].forEach(function (grupo) {
+          data.checks[grupo] = seleccionados(grupo);
+        });
+        return data;
+      }
+
+      function guardarSiProcede() {
+        if (!$('guardar-local').checked) return;
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(estadoFormulario()));
+      }
+
+      function restaurar() {
+        var raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return;
+        try {
+          var data = JSON.parse(raw);
+          ids.forEach(function (id) {
+            if ($(id) && Object.prototype.hasOwnProperty.call(data, id)) $(id).value = data[id];
+          });
+          $('guardar-local').checked = !!data.guardar;
+          ['fuentes', 'medidas'].forEach(function (grupo) {
+            var vals = data.checks && data.checks[grupo] ? data.checks[grupo] : [];
+            var cont = document.querySelector('[data-group="' + grupo + '"]');
+            if (!cont) return;
+            Array.prototype.slice.call(cont.querySelectorAll('input[type="checkbox"]')).forEach(function (x) {
+              x.checked = vals.indexOf(x.value) !== -1;
+            });
+          });
+        } catch (err) {
+          localStorage.removeItem(STORAGE_KEY);
+        }
+      }
+
+      function limpiar() {
+        ids.forEach(function (id) {
+          if ($(id)) $(id).value = '';
+        });
+        document.querySelectorAll('input[type="checkbox"]').forEach(function (x) {
+          x.checked = false;
+        });
+        $('perfil').value = 'perfil de altas capacidades';
+        $('conclusion').value = 'compatible';
+        $('salida-breve').value = '';
+        $('salida-completa').value = '';
+        $('chips').innerHTML = '';
+        localStorage.removeItem(STORAGE_KEY);
+      }
+
+      function init() {
+        if (!$('fecha').value) $('fecha').valueAsDate = new Date();
+        restaurar();
+        document.querySelectorAll('.js-aacc').forEach(function (el) {
+          el.addEventListener('input', guardarSiProcede);
+          el.addEventListener('change', guardarSiProcede);
+        });
+        $('btn-generar').addEventListener('click', generar);
+        $('btn-limpiar').addEventListener('click', limpiar);
+        $('btn-copiar-breve').addEventListener('click', function () { copiar('salida-breve', this); });
+        $('btn-copiar-completo').addEventListener('click', function () { copiar('salida-completa', this); });
+        generar();
+      }
+
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+      else init();
+    })();
+  </script>
+</body>
+</html>
