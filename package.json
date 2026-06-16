@@ -1,0 +1,12 @@
+{
+  "name": "orientacion",
+  "private": true,
+  "description": "Tests en Node para funciones puras (baremos, cuadernillo WISC, IC demo).",
+  "scripts": {
+    "build:css": "tailwindcss -i ./css/tailwind-input.css -o ./css/tailwind.css --minify",
+    "test": "node tests/run-tests.js"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}
