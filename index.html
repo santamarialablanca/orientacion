@@ -173,8 +173,19 @@
                   </select>
                 </div>
                 <div>
+                  <label class="label" for="fecha-elaboracion">Fecha de elaboración</label>
+                  <input id="fecha-elaboracion" class="input js-piec" type="date">
+                </div>
+              </div>
+
+              <div class="field-row field-row--2">
+                <div>
                   <label class="label" for="vigencia">Vigencia máxima</label>
                   <input id="vigencia" class="input js-piec" type="date">
+                </div>
+                <div>
+                  <label class="label" for="docente-asignatura">Docente de la asignatura</label>
+                  <input id="docente-asignatura" class="input js-piec" type="text" autocomplete="off" placeholder="Si no coincide con tutoría">
                 </div>
               </div>
 
@@ -212,6 +223,11 @@
               </div>
 
               <div>
+                <label class="label" for="informe-eval">Informe de evaluación psicopedagógica</label>
+                <textarea id="informe-eval" class="textarea js-piec" rows="4" placeholder="Fecha del informe, orientación/EOEP de referencia y síntesis de identificación de AACC, barreras, necesidades y propuesta de respuesta educativa."></textarea>
+              </div>
+
+              <div>
                 <p class="label">Actividades comunes de enriquecimiento</p>
                 <div class="piec-check-grid" data-group="enriquecimiento">
                   <label class="piec-check"><input type="checkbox" class="js-piec" value="agrupamientos flexibles o desdobles para enriquecimiento"> Agrupamientos flexibles / desdobles</label>
@@ -238,6 +254,11 @@
               <div>
                 <label class="label" for="flexibilizacion">Criterios para la flexibilización</label>
                 <textarea id="flexibilizacion" class="textarea js-piec" rows="4" placeholder="Indicar si no procede actualmente o si se valorará si el PIEC resulta insuficiente y beneficia su desarrollo personal y socioeducativo."></textarea>
+              </div>
+
+              <div>
+                <label class="label" for="documentos-adjuntos">Documentos adjuntos / anexos</label>
+                <textarea id="documentos-adjuntos" class="textarea js-piec" rows="3" placeholder="Anexo de barreras, actas de equipo docente, seguimientos, informe psicopedagógico u otros documentos si el texto no cabe en Raíces."></textarea>
               </div>
 
               <div>
@@ -309,6 +330,15 @@
             </div>
 
             <div class="piec-output-list">
+              <div class="card">
+                <div class="piec-copy-row">
+                  <label class="label" for="out-cabecera">Cabecera, informe psicopedagógico y adjuntos</label>
+                  <button type="button" class="btn btn--secondary js-copy" data-copy="out-cabecera">Copiar</button>
+                </div>
+                <textarea id="out-cabecera" class="textarea piec-output" readonly></textarea>
+                <p id="count-out-cabecera" class="piec-counter"></p>
+              </div>
+
               <div class="card">
                 <div class="piec-copy-row">
                   <label class="label" for="out-profesionales">Profesionales implicados</label>
@@ -388,13 +418,14 @@
 
       var STORAGE_KEY = 'orientacion:piec-tutor-aacc:v2';
       var ids = [
-        'alumno', 'curso', 'etapa', 'vigencia', 'tutor', 'asignatura', 'barreras-contexto',
-        'perfil-alumno', 'actividades-extra', 'familia', 'flexibilizacion',
+        'alumno', 'curso', 'etapa', 'fecha-elaboracion', 'vigencia', 'tutor', 'docente-asignatura',
+        'asignatura', 'barreras-contexto', 'perfil-alumno', 'informe-eval',
+        'actividades-extra', 'familia', 'flexibilizacion', 'documentos-adjuntos',
         'seg-1', 'seg-2', 'seg-3', 'seg-4', 'seg-5',
         'objetivos', 'contenidos', 'metodologia', 'actividades-asignatura', 'evaluacion', 'competencias'
       ];
       var outputs = [
-        'out-profesionales', 'out-organizacion', 'out-enriquecimiento', 'out-seguimiento',
+        'out-cabecera', 'out-profesionales', 'out-organizacion', 'out-enriquecimiento', 'out-seguimiento',
         'out-familia', 'out-flexibilizacion', 'out-asignatura'
       ];
 
@@ -454,7 +485,9 @@
         var alumno = valor('alumno') || 'el/la alumno/a';
         var curso = valor('curso') || 'curso/grupo no indicado';
         var tutor = valor('tutor') || 'tutor/a del grupo';
+        var docenteAsignatura = valor('docente-asignatura') || tutor;
         var asignatura = valor('asignatura') || 'la asignatura seleccionada';
+        var fechaElaboracion = valor('fecha-elaboracion') || 'fecha de elaboración indicada en Raíces';
         var vigencia = valor('vigencia') || '30 de junio del curso académico';
         var profesionales = seleccionados('profesionales');
         if (profesionales.indexOf('tutor/a') === -1) profesionales.unshift('tutor/a');
@@ -462,13 +495,28 @@
         var enriqTexto = enriq.length ? listaNatural(enriq) : 'actividades de enriquecimiento ordinario y específico acordadas por el equipo docente';
         var barrerasContexto = fallback(valor('barreras-contexto'), 'Se revisan barreras del contexto y del centro: organización de espacios y tiempos, agrupamientos, metodología habitual, accesibilidad de recursos, coordinación docente y relación familia-centro.');
         var perfil = fallback(valor('perfil-alumno'), 'Se consideran sus intereses, destrezas preferidas, potencialidades, puntos fuertes, aspectos a mejorar, ajuste socioemocional, participación, rendimiento y nivel de competencia curricular.');
+        var informeEval = fallback(valor('informe-eval'), 'Se toma como referencia el informe de evaluación psicopedagógica disponible en Raíces, en el que se identifican las necesidades específicas de apoyo educativo asociadas a altas capacidades, las barreras de acceso y participación y las propuestas de respuesta educativa. Revisar fecha, autoría y vigencia del informe antes de bloquear el documento.');
         var actividadesExtra = valor('actividades-extra');
         var familia = fallback(valor('familia'), 'Se informará a la familia de la valoración del nivel de competencia curricular, de la propuesta de respuesta educativa, de los seguimientos realizados y de las decisiones de final de curso para el curso siguiente.');
         var flex = fallback(valor('flexibilizacion'), 'En el momento actual no se adoptan decisiones de flexibilización. Se revisará si el PIEC resulta insuficiente para eliminar barreras de acceso y participación y si la medida beneficia el desarrollo personal y socioeducativo del alumno/a.');
+        var documentos = fallback(valor('documentos-adjuntos'), 'Si el contenido no cabe en los campos de Raíces, adjuntar anexo con identificación de barreras de acceso y participación, seguimientos del equipo docente, actas relevantes y concreción de la propuesta curricular. Generar el PDF final desde Utilidades / Documentos / Adaptación Curricular AACC y enviarlo a firma o bloqueo según el procedimiento del centro.');
+
+        $('out-cabecera').value = [
+          'APARTADOS 1, 2, 3 Y 11 DEL DOCUMENTO DE RAÍCES',
+          '',
+          '1. Fecha de elaboración: ' + fechaElaboracion + '.',
+          '2. Datos del alumno/a: ' + alumno + ', ' + curso + ', ' + etapaTexto() + '. Comprobar que los datos personales y NEAE se cargan desde el expediente virtual de Raíces.',
+          '3. Informe de evaluación psicopedagógica:',
+          informeEval,
+          '11. Documentos adjuntos / anexos:',
+          documentos,
+          'Ruta orientativa en Primaria: Alumnado / Alumnado con NEAE / Adaptación curricular AACC. Después de completar los apartados, generar el documento PDF desde Utilidades / Documentos / Adaptación Curricular AACC.'
+        ].join('\n');
 
         $('out-profesionales').value = [
           'Profesionales implicados en el PIEC de ' + alumno + ' (' + curso + ', ' + etapaTexto() + '): ' + listaNatural(profesionales) + '.',
           'La elaboración y seguimiento corresponde al tutor/a y equipo docente, con la colaboración de jefatura de estudios y el asesoramiento de orientación cuando proceda. Cada profesional seleccionado en Raíces deberá rubricar el documento según el procedimiento del centro.',
+          'Profesorado implicado en la propuesta curricular de ' + asignatura + ': ' + docenteAsignatura + '.',
           'Vigencia prevista: hasta ' + vigencia + ', al tratarse de un documento vivo del curso escolar.'
         ].join('\n');
 
@@ -615,11 +663,20 @@
           if ($(id)) $(id).value = '';
         });
         localStorage.removeItem(STORAGE_KEY);
-        fijarVigencia();
+        fijarFechas();
         generar();
       }
 
-      function fijarVigencia() {
+      function fechaISO(date) {
+        var yyyy = date.getFullYear();
+        var mm = String(date.getMonth() + 1).padStart(2, '0');
+        var dd = String(date.getDate()).padStart(2, '0');
+        return yyyy + '-' + mm + '-' + dd;
+      }
+
+      function fijarFechas() {
+        var fecha = $('fecha-elaboracion');
+        if (fecha && !fecha.value) fecha.value = fechaISO(new Date());
         var v = $('vigencia');
         if (!v || v.value) return;
         var hoy = new Date();
@@ -628,7 +685,7 @@
       }
 
       function init() {
-        fijarVigencia();
+        fijarFechas();
         restaurar();
         document.querySelectorAll('.js-piec').forEach(function (el) {
           el.addEventListener('input', guardarSiProcede);

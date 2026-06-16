@@ -107,6 +107,27 @@
       border: 1px solid #efdba7;
       border-radius: var(--radius);
     }
+
+    .aacc-piec-link {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      padding: 0.85rem 1rem;
+      font-size: 0.875rem;
+      color: var(--color-text);
+      background: #edf5ef;
+      border: 1px solid #cfe1d4;
+      border-radius: var(--radius);
+    }
+
+    .aacc-piec-link strong {
+      display: block;
+      margin-bottom: 0.15rem;
+      color: var(--color-brand);
+    }
   </style>
 </head>
 <body>
@@ -132,6 +153,14 @@
 
     <main class="app__main">
       <div class="layout">
+        <div class="aacc-piec-link">
+          <div>
+            <strong>¿Vas a completar el PIEC / Adaptación Curricular AACC en Raíces?</strong>
+            <span>Usa el generador específico: incluye apartados comunes, propuesta por asignatura, seguimiento, familia, flexibilización y adjuntos.</span>
+          </div>
+          <a class="btn btn--primary" href="./">Abrir generador PIEC</a>
+        </div>
+
         <div class="aacc-grid">
           <section aria-labelledby="titulo-datos">
             <h2 id="titulo-datos" class="section-title">
